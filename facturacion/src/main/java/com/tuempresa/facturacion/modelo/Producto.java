@@ -27,12 +27,15 @@ public class Producto {
 	@Money  
 	BigDecimal precio;
 	
-	@Files // Una galería de fotos completa está disponible
-	@Column(length=32) // La cadena de 32 de longitud es para almacenar la clave de la galería
+	@Files 
+	@Column(length=32)
+	
 	String fotos;
-	@TextArea // Esto es para un texto grande, se usará un área de texto o equivalente
+	@TextArea 
 	String observaciones;
 
-	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@DescriptionsList
+	Autor autor;
 
 }
