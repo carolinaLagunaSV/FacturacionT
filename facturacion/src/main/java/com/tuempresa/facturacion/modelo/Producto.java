@@ -11,7 +11,7 @@ import lombok.*;
 
 @Entity @Getter @Setter
 public class Producto {
-	@Id @Column(length=9)
+	@Id @Column(length=9) 
 	 int numero;
 	
 	@Column(length=50) @Required
@@ -24,8 +24,8 @@ public class Producto {
 			 @DescriptionsList 
 			 Categoria categoria; 
 	
-	@Money  //  almacenar dinero
-	BigDecimal precio; //  para dinero
+	@Money  
+	BigDecimal precio;
 	
 	@Files // Una galería de fotos completa está disponible
 	@Column(length=32) // La cadena de 32 de longitud es para almacenar la clave de la galería
