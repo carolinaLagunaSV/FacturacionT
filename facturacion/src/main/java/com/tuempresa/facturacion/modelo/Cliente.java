@@ -9,6 +9,7 @@ import lombok.*;
 
 @Entity
 @Getter @Setter
+@View(name="Simple",members="numero, nombre" )
 public class Cliente {
 	
 	@Id
