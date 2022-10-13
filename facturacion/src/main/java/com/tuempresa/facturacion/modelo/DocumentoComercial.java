@@ -41,15 +41,13 @@ abstract public class DocumentoComercial extends Identificable {
 	 @ReferenceView("Simple")
 	 Cliente cliente;
 	 
-	 
-	 
-	 @ElementCollection
-	 @ListProperties("producto.numero, producto.descripcion, cantidad")
-	 Collection<Detalle> detalles;
-	 
-	 
-@Stereotype("MEMO")
+	
+   @Stereotype("MEMO")
 	String observaciones;
+   
+   @ElementCollection
+   @ListProperties("producto.numero, producto.descripcion, cantidad, precioPorUnidad, importe") // importe añadida
+   Collection<Detalle> detalles;
 	 
 	 
 	
