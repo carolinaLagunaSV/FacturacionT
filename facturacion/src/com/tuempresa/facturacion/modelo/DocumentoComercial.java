@@ -85,4 +85,9 @@ abstract public class DocumentoComercial extends Identificable{
 		
 	}
 	
+	@org.hibernate.annotations.Formula("IMPORTETOTAL * 0.10") 
+	@Setter(AccessLevel.NONE)
+	@Stereotype("DINERO")
+	BigDecimal beneficioEstimado;
+	
 }
