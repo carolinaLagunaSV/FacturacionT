@@ -11,7 +11,7 @@ import lombok.*;
 public class Direccion {
 	
 	
-	@Column(length = 30) // Los miembros se anotan igual que en las entidades
+	@Column(length = 30) 
 	 String viaPublica;
 	 @Column(length = 5)
 	 int codigoPostal;

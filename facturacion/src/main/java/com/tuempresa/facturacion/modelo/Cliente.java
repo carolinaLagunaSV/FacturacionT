@@ -13,9 +13,7 @@ import lombok.*;
 
 public class Cliente {
 	
-	@Id
-	@Column(length=6)
-	int numero;
+	
 	
 	
 	@Column(length=50)

@@ -1,8 +1,10 @@
 package com.tuempresa.facturacion.modelo;
+import java.math.*;
 import java.time.*;
 import java.util.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.openxava.annotations.*;
 import org.openxava.calculators.*;
@@ -46,12 +48,29 @@ abstract public class DocumentoComercial extends Identificable {
 	String observaciones;
    
    @ElementCollection
-   @ListProperties("producto.numero, producto.descripcion, cantidad, precioPorUnidad, importe") // importe añadida
-   Collection<Detalle> detalles;
+   @ListProperties ("producto.numero, producto.descripcion, cantidad, precioPorUnidad, " +
+		   "importe+[" + 
+		   "documentoComercial.porcentajeIVA," +
+		   "documentoComercial.iva," +
+		   "documentoComercial.importeTotal" +
+		   "]"
+		    ) 
+		    private Collection<Detalle> detalles;
 	 
 	 
 	
-	 
+   @Digits(integer=2, fraction=0) 
+   BigDecimal porcentajeIVA;
+   
+   @ReadOnly
+   @Money
+   @Calculation("sum(detalles.importe) * porcentajeIVA / 100")
+   BigDecimal iva;
+   
+   @ReadOnly
+   @Money
+   @Calculation("sum(detalles.importe) + iva") 
+   BigDecimal importeTotal;
 	 
 	 
 	 
