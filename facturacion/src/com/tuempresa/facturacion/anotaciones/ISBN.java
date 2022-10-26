@@ -12,6 +12,10 @@ import javax.validation.*;
 
 
 public @interface ISBN {
+	
+	
+	
+	boolean buscar() default true;
 
 	Class<?>[] groups() default{};
 	 Class<? extends Payload>[] payload() default{};

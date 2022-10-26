@@ -37,8 +37,9 @@ public class Producto {
     @DescriptionsList
     Autor autor;
     
-    //Nueva Columna
-    @Column(length=13) @ISBN
+ //ISBD
+    @Column(length=13) 
+    @ISBN (buscar=false)
     String isbn;
     
     
