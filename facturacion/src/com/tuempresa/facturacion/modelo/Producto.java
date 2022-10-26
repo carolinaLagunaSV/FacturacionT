@@ -6,6 +6,8 @@ import javax.persistence.*;
 
 import org.openxava.annotations.*;
 
+import com.tuempresa.facturacion.anotaciones.*;
+
 import lombok.*;
 
 @Entity @Getter @Setter
@@ -34,4 +36,10 @@ public class Producto {
     @ManyToOne(fetch = FetchType.LAZY)
     @DescriptionsList
     Autor autor;
+    
+    //Nueva Columna
+    @Column(length=13) @ISBN
+    String isbn;
+    
+    
 }
